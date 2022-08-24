@@ -1,8 +1,8 @@
 #!/usr/bin/sh
 
-NVIM_MINIMALIST=~/.config/nvim-minimalist
-export NVIM_MINIMALIST
+NVIM_101=~/.config/nvim-101
+export NVIM_101
 
-alias nvmm='XDG_DATA_HOME=$NVIM_MINIMALIST/share XDG_CACHE_HOME=$NVIM_MINIMALIST XDG_CONFIG_HOME=$NVIM_MINIMALIST nvim'
+alias nvmm='XDG_DATA_HOME=$NVIM_101/share XDG_CACHE_HOME=$NVIM_101 XDG_CONFIG_HOME=$NVIM_101 nvim'
 
 nvmm
