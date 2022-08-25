@@ -1,14 +1,14 @@
 #!/usr/bin/sh
 
-NVIM_MINIMALIST=~/.config/nvim-minimalist
-export NVIM_MINIMALIST
+NVIM_101=~/.config/nvim-101
+export NVIM_101
 
-rm -rf $NVIM_MINIMALIST
+rm -rf "$NVIM_101"
 
-mkdir -p $NVIM_MINIMALIST/share
-mkdir -p $NVIM_MINIMALIST/share/nvim/session
-mkdir -p $NVIM_MINIMALIST/nvim
+mkdir -p "$NVIM_101"/share
+mkdir -p "$NVIM_101"/share/nvim/session
+mkdir -p "$NVIM_101"/nvim
 
-stow --restow --target=$NVIM_MINIMALIST/nvim .
+stow --restow --target="$NVIM_101"/nvim .
 
-alias nvmm='XDG_DATA_HOME=$NVIM_MINIMALIST/share XDG_CACHE_HOME=$NVIM_MINIMALIST XDG_CONFIG_HOME=$NVIM_MINIMALIST nvim'
+alias nv101='XDG_DATA_HOME=$NVIM_101/share XDG_CACHE_HOME=$NVIM_101 XDG_CONFIG_HOME=$NVIM_101 nvim'

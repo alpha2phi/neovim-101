@@ -54,6 +54,32 @@ local function plugins(use)
 		end,
 	})
 
+	-- Colorscheme
+	use({
+		"folke/tokyonight.nvim",
+		config = function()
+			vim.cmd.colorscheme("tokyonight")
+		end,
+	})
+
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("config.treesitter")
+		end,
+	})
+
+	-- use({
+	-- 	"bennypowers/nvim-regexplainer",
+	-- 	config = function()
+	-- 		require("regexplainer").setup()
+	-- 	end,
+	-- 	requires = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- })
+
 	-- Bootstrap Neovim
 	if packer_bootstrap then
 		print("Neovim restart is required after installation!")
