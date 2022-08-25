@@ -69,17 +69,6 @@ local function plugins(use)
 		end,
 	})
 
-	-- use({
-	-- 	"bennypowers/nvim-regexplainer",
-	-- 	config = function()
-	-- 		require("regexplainer").setup()
-	-- 	end,
-	-- 	requires = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"MunifTanjim/nui.nvim",
-	-- 	},
-	-- })
-
 	-- Bootstrap Neovim
 	if packer_bootstrap then
 		print("Neovim restart is required after installation!")
