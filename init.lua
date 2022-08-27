@@ -69,7 +69,50 @@ local function plugins(use)
 		end,
 	})
 
-	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-telescope/telescope-media-files.nvim" } })
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-telescope/telescope-media-files.nvim" },
+		config = function()
+			require("config.telescope")
+		end,
+	})
+
+	-- View image in buffer
+	use({
+		"edluffy/hologram.nvim",
+		config = function()
+			require("hologram").setup({
+				auto_display = true,
+			})
+		end,
+		disable = true,
+	})
+
+	-- Ranger terminal file manager
+	use({ "kevinhwang91/rnvimr" })
+
+	-- ASCII image viewer
+	use({
+		"samodostal/image.nvim",
+		config = function()
+			require("image").setup({
+				render = {
+					min_padding = 5,
+					show_label = true,
+					use_dither = true,
+				},
+				events = {
+					update_on_nvim_resize = true,
+				},
+			})
+		end,
+	})
+
+	-- FZF
+	use({ "ibhagwan/fzf-lua", config = function ()
+	 require("config.fzf-lua")
+	end })
+
 	-- Bootstrap Neovim
 	if packer_bootstrap then
 		print("Neovim restart is required after installation!")
