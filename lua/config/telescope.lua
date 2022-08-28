@@ -11,7 +11,6 @@ require("telescope").setup({
 				if is_image(filepath) then
 					local term = vim.api.nvim_open_term(bufnr, {})
 					local function send_output(_, data, _)
-						vim.pretty_print(data)
 						for _, d in ipairs(data) do
 							vim.api.nvim_chan_send(term, d .. "\r\n")
 						end
