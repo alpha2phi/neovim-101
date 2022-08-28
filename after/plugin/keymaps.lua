@@ -13,3 +13,7 @@ keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, sil
 
 -- jk to ESC
 keymap("i", "jk", "<ESC>", { noremap = true, silent = true })
+
+-- Toggle terminal
+keymap("n", "<Leader>t", '<CMD>lua require("FTerm").toggle()<CR>')
+keymap("t", "<Leader>t", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')

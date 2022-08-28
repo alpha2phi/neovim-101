@@ -46,6 +46,7 @@ local function plugins(use)
 	use({ "wbthomason/packer.nvim" })
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "nvim-lua/plenary.nvim" })
+	use({ "stevearc/dressing.nvim" })
 	use({
 		"TimUntersberger/neogit",
 		cmd = { "Neogit" },
@@ -109,9 +110,25 @@ local function plugins(use)
 	})
 
 	-- FZF
-	use({ "ibhagwan/fzf-lua", config = function ()
-	 require("config.fzf-lua")
-	end })
+	use({
+		"ibhagwan/fzf-lua",
+		config = function()
+			require("config.fzf-lua")
+		end,
+	})
+
+	-- Terminal
+	use({ "numToStr/FTerm.nvim" })
+
+	-- Icon picker
+	use({
+		"ziontee113/icon-picker.nvim",
+		config = function()
+			require("icon-picker").setup({
+				disable_legacy_commands = true,
+			})
+		end,
+	})
 
 	-- Bootstrap Neovim
 	if packer_bootstrap then
