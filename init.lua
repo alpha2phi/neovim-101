@@ -68,7 +68,7 @@ local function plugins(use)
 		config = function()
 			require("config.treesitter")
 		end,
-		requires = { "nvim-treesitter/playground" },
+		requires = { "nvim-treesitter/playground", "nvim-treesitter/nvim-treesitter-textobjects" },
 	})
 
 	use({
