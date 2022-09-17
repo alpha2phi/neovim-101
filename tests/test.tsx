@@ -20,7 +20,7 @@ const query_2 = gql`
   }
 `;
 
-const query_2 = `
+const query_3 = `
   query {
     products {
       id
