@@ -59,8 +59,7 @@ local function plugins(use)
   use({
     "folke/tokyonight.nvim",
     config = function()
-      --vim.cmd.colorscheme("tokyonight")
-      vim.cmd[[colorscheme tokyonight]]
+      vim.cmd.colorscheme("tokyonight")
     end,
   })
 
