@@ -17,7 +17,7 @@ opt.termguicolors = true
 opt.undofile = true
 opt.updatetime = 250
 opt.laststatus = 3
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.expandtab = true
 
 opt.path:remove("/usr/include")
