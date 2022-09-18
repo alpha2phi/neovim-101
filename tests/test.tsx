@@ -30,3 +30,14 @@ const query_3 = `
     }
   }
 `;
+
+const query_4 = /* GQL */`
+  query {
+    products {
+      id
+      productNumber
+      facilityName
+      description
+    }
+  }
+`;

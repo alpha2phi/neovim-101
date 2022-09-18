@@ -11,6 +11,13 @@ local query_2 = [[
   ) 
 ]]
 
+
+local tql_3 = [[
+  (function_definition 
+    name: (identifier) @func_name (#offset! @func_name)
+  ) 
+]]
+
 local function function_1(a, b)
 	print("Function 1")
 end
