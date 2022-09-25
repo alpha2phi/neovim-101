@@ -239,7 +239,30 @@ local function plugins(use)
       require("config.browse")
     end
   })
-  
+
+
+  -- Windows
+  use { "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+    },
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require('windows').setup()
+    end,
+    disable = true
+  }
+  use { 
+      "beauwilliams/focus.nvim", 
+      config = function() 
+        require("focus").setup() 
+      end,
+      disable = true
+  }
+  use 'sindrets/winshift.nvim'
 
   -- Bootstrap Neovim
   if packer_bootstrap then
