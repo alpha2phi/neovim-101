@@ -270,6 +270,18 @@ local function plugins(use)
   use({ "preservim/tagbar" })
   use({ "liuchengxu/vista.vim" })
 
+
+  -- Code Runner
+  use { "metakirby5/codi.vim"}
+  use { "0x100101/lab.nvim", config=function()
+    require('lab').setup {
+      quick_data = {
+        enabled = true,
+      }
+    }
+  end
+}
+
   -- Bootstrap Neovim
   if packer_bootstrap then
     print("Neovim restart is required after installation!")
