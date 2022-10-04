@@ -152,6 +152,7 @@ local function plugins(use)
       "nvim-treesitter/nvim-treesitter",
       "MunifTanjim/nui.nvim",
     },
+    disable = true
   })
   use({
     "Djancyp/regex.nvim",
@@ -279,7 +280,8 @@ local function plugins(use)
         enabled = true,
       }
     }
-  end
+  end,
+  disable = true
 }
 
   -- Bootstrap Neovim
