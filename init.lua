@@ -261,9 +261,9 @@ local function plugins(use)
   use({
     "beauwilliams/focus.nvim",
     config = function()
-      require("focus").setup()
+      require("focus").setup({ hybridnumber = true } )
     end,
-    disable = true,
+    disable = false,
   })
   use("sindrets/winshift.nvim")
 
