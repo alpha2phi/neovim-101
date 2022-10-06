@@ -47,6 +47,8 @@ local function plugins(use)
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "stevearc/dressing.nvim" })
+  use({ "MunifTanjim/nui.nvim" })
+
   use({
     "TimUntersberger/neogit",
     cmd = { "Neogit" },
@@ -237,7 +239,7 @@ local function plugins(use)
     end,
   })
 
-  -- Windows
+  -- Windows and buffers
   use({
     "karb94/neoscroll.nvim",
     config = function()
@@ -251,7 +253,7 @@ local function plugins(use)
       "anuvyklack/animation.nvim",
     },
     config = function()
-      vim.o.winwidth = 10
+      vim.o.winwidth = 15
       vim.o.winminwidth = 10
       vim.o.equalalways = false
       require("windows").setup()
@@ -263,9 +265,42 @@ local function plugins(use)
     config = function()
       require("focus").setup({ hybridnumber = true } )
     end,
-    disable = false,
+    disable = true,
   })
-  use("sindrets/winshift.nvim")
+  use({"sindrets/winshift.nvim", disable = tre})
+  use {
+    "luukvbaal/stabilize.nvim",
+    config = function() require("stabilize").setup() end,
+    disable = false,
+  }
+  use({
+    "ghillb/cybu.nvim",
+    branch = "main", -- timely updates
+    -- branch = "v1.x", -- won't receive breaking changes
+    requires = { "kyazdani42/nvim-web-devicons", "nvim-lua/plenary.nvim"}, -- optional for icon support
+    config = function()
+      local ok, cybu = pcall(require, "cybu")
+      if not ok then
+        return
+      end
+      cybu.setup()
+      vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
+      vim.keymap.set("n", "J", "<Plug>(CybuNext)")
+      vim.keymap.set({"n", "v"}, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
+      vim.keymap.set({"n", "v"}, "<c-tab>", "<plug>(CybuLastusedNext)")
+    end,
+    disable = true
+  })
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
 
   -- Code outline
   use({ "preservim/tagbar" })
