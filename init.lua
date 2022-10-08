@@ -301,6 +301,10 @@ local function plugins(use)
       "rcarriga/nvim-notify",
     }
   })
+  use {'matbme/JABS.nvim', config=function()
+    require 'jabs'.setup {}
+  end
+  }
 
   -- Code outline
   use({ "preservim/tagbar" })
