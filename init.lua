@@ -319,9 +319,30 @@ local function plugins(use)
         enabled = true,
       }
     }
-  end,
-  disable = true
-}
+    end,
+    disable = true
+  }
+
+  use {
+    'phaazon/notisys.nvim',
+    branch = 'v0.1',
+    config = function()
+      require'notisys'.setup()
+    end,
+    disable = true
+  }
+  use {
+    "smjonas/live-command.nvim",
+    -- live-command supports semantic versioning via tags
+    -- tag = "1.*",
+    config = function()
+      require("live-command").setup {
+        commands = {
+          Norm = { cmd = "norm" },
+        },
+      }
+    end,
+  }
 
   -- Bootstrap Neovim
   if packer_bootstrap then
