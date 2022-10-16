@@ -373,6 +373,13 @@ local function plugins(use)
 		end,
 	})
 
+	use({
+		"ibhagwan/smartyank.nvim",
+		config = function()
+			require("smartyank").setup({})
+		end,
+	})
+
 	-- Bootstrap Neovim
 	if packer_bootstrap then
 		print("Neovim restart is required after installation!")
