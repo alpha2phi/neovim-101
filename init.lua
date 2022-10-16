@@ -356,6 +356,12 @@ local function plugins(use)
 		end,
 	})
 
+	use({
+		"protex/better-digraphs.nvim",
+		config = function()
+			require("config.digraph")
+		end,
+	})
 	-- Bootstrap Neovim
 	if packer_bootstrap then
 		print("Neovim restart is required after installation!")
