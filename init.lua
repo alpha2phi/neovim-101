@@ -380,6 +380,18 @@ local function plugins(use)
     end,
   })
 
+  -- LSP
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'neovim/nvim-lspconfig' },
+    },
+    config = function()
+      require 'navigator'.setup()
+    end
+  })
+
   -- Bootstrap Neovim
   if packer_bootstrap then
     print("Neovim restart is required after installation!")
@@ -394,4 +406,4 @@ packer.init(conf)
 packer.startup(plugins)
 
 -- LSP configuration
-require("config.lsp")
+--require("config.lsp")
