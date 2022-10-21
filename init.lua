@@ -124,7 +124,7 @@ local function plugins(use)
 	use({
 		"adelarsq/image_preview.nvim",
 		config = function()
-			require("image_preview").setup({})
+			require("image_preview").setup()
 		end,
 	})
 
@@ -380,6 +380,47 @@ local function plugins(use)
 		end,
 	})
 
+	-- LSP
+	--use({
+	--	"ray-x/navigator.lua",
+	--	requires = {
+	--		{ "ray-x/guihua.lua", run = "cd lua/fzy && make" },
+	--		{ "neovim/nvim-lspconfig" },
+	--	},
+	--	config = function()
+	--		require("navigator").setup()
+	--	end,
+	--	disable = true,
+	--})
+
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+		config = function()
+			local lsp = require("lsp-zero")
+			lsp.preset("recommended")
+			lsp.setup()
+			lsp.nvim_workspace()
+		end,
+	})
+
 	-- Bootstrap Neovim
 	if packer_bootstrap then
 		print("Neovim restart is required after installation!")
@@ -392,3 +433,6 @@ packer_init()
 local packer = require("packer")
 packer.init(conf)
 packer.startup(plugins)
+
+-- LSP configuration
+--require("config.lsp")
