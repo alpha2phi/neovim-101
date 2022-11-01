@@ -57,6 +57,18 @@ local function plugins(use)
     end,
   })
 
+  use({
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  })
+  use({
+    "ggandor/leap-spooky.nvim",
+    config = function()
+      require("leap-spooky").setup({})
+    end,
+  })
   -- Colorscheme
   use({
     "folke/tokyonight.nvim",
@@ -323,31 +335,31 @@ local function plugins(use)
 
   -- Code Runner
   use({ "metakirby5/codi.vim" })
-  use { 'michaelb/sniprun', run = 'bash ./install.sh',
+  use({
+    "michaelb/sniprun",
+    run = "bash ./install.sh",
     config = function()
-      require("sniprun").setup {
+      require("sniprun").setup({
         display = {
           "Terminal",
-          "VirtualTextOk"
-        }
-      }
-    end
-  }
+        },
+      })
+    end,
+  })
 
-  use { "Olical/conjure" }
-
+  use({ "Olical/conjure" })
+  use({ "Olical/aniseed" })
   use({
     "0x100101/lab.nvim",
     config = function()
-      require("lab").setup {
+      require("lab").setup({
         quick_data = {
           enabled = true,
         },
-      }
+      })
     end,
     disable = true,
   })
-
 
   use({
     "phaazon/notisys.nvim",
@@ -368,7 +380,7 @@ local function plugins(use)
         },
       })
     end,
-    disable = true
+    disable = true,
   })
 
   use({
@@ -376,7 +388,7 @@ local function plugins(use)
     config = function()
       require("config.digraph")
     end,
-    disable = true
+    disable = true,
   })
 
   use({
@@ -387,7 +399,7 @@ local function plugins(use)
       vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
       vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
     end,
-    disable = true
+    disable = true,
   })
 
   use({
@@ -436,7 +448,7 @@ local function plugins(use)
       lsp.setup()
       lsp.nvim_workspace()
     end,
-    disable = true
+    disable = true,
   })
 
   -- Bootstrap Neovim

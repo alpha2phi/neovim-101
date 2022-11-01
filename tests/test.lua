@@ -19,9 +19,15 @@ local tql_3 = [[
 ]]
 
 local function function_1(a, b)
-	print("Function 1")
+  print("Function 1")
 end
 
 local function function_2(x, y)
-	print("Function 2")
+  print("Function 2")
 end
+
+local function add(x, y)
+  return x + y
+end
+
+vim.notify("" .. add(88, 99))
