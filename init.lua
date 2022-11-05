@@ -334,33 +334,43 @@ local function plugins(use)
   use({ "liuchengxu/vista.vim" })
 
   -- Code Runner
-  use({ "metakirby5/codi.vim" })
   use({
     "michaelb/sniprun",
     run = "bash ./install.sh",
     config = function()
       require("sniprun").setup({
         display = {
+          "VirtualTextOk",
           "Terminal",
-        },
-      })
-    end,
-  })
-
-  use({ "Olical/conjure" })
-  use({ "Olical/aniseed" })
-  use({
-    "0x100101/lab.nvim",
-    config = function()
-      require("lab").setup({
-        quick_data = {
-          enabled = true,
         },
       })
     end,
     disable = true,
   })
-
+  use({
+    "dccsillag/magma-nvim",
+    run = ":UpdateRemotePlugins",
+    disable = true,
+  })
+  use({ "Olical/conjure", disable = true })
+  use({ "Olical/aniseed", disable = true })
+  use({ "metakirby5/codi.vim", disable = true })
+  use({ "jpalardy/vim-slime", config = function()
+    vim.g.slime_target = "neovim"
+  end,
+    disable = true })
+  use({ '0x100101/lab.nvim',
+    run = 'cd js && npm ci',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('lab').setup {
+        quick_data = {
+          enabled = false,
+        }
+      }
+    end,
+    disable = false
+  })
   use({
     "phaazon/notisys.nvim",
     branch = "v0.1",
