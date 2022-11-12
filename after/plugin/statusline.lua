@@ -1,4 +1,4 @@
-vim.api.nvim_exec( [[
+vim.api.nvim_exec([[
  function! MyClickFunc(minwid, clicks, button, mods)
       let g:testvar = printf("%d %d %s", a:minwid, a:clicks, a:button)
       if a:mods !=# '    '
@@ -7,7 +7,7 @@ vim.api.nvim_exec( [[
       echo g:testvar
 endfunction
 ]],
-true
+  true
 )
 
 function _G.ClickMe(minwid, clicks, button, mods)
@@ -40,4 +40,4 @@ end
 
 -- vim.opt.statusline = status_line()
 -- vim.opt.winbar = status_line()
-vim.opt.statusline = status_line()
+--vim.opt.statusline = status_line()

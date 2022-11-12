@@ -248,6 +248,12 @@ local function plugins(use)
 
 	-- Status line
 	use({ "rebelot/heirline.nvim" })
+	use({
+		"nanozuki/tabby.nvim",
+		config = function()
+			require("config.tabby")
+		end,
+	})
 
 	-- Search
 	use({
@@ -310,8 +316,16 @@ local function plugins(use)
 			vim.keymap.set({ "n", "v" }, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
 			vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
 		end,
-		disable = true,
+		disable = false,
 	})
+
+	use({
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("config.lualine")
+		end,
+	})
+
 	use({
 		"folke/noice.nvim",
 		config = function()
