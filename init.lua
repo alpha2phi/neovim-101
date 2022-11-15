@@ -21,7 +21,7 @@ local conf = {
 local function packer_init()
   -- Check if packer.nvim is installed
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-    if fn.empty(fn.glob(install_path)) > 0 then
+  if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({
       "git",
       "clone",
@@ -480,8 +480,9 @@ local function plugins(use)
   })
 
   -- Docker
-  use({ "skanehira/denops-docker.vim", requires = { { "vim-denops/denops.vim" } } })
-
+  use({ "skanehira/denops-docker.vim", requires = { { "vim-denops/denops.vim" } }, disable = true })
+  use({ "jamestthompson3/nvim-remote-containers", disable = true })
+  use({ "kkvh/vim-docker-tools" })
   -- Bootstrap Neovim
   if packer_bootstrap then
     print("Neovim restart is required after installation!")
