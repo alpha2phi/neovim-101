@@ -57,18 +57,6 @@ local function plugins(use)
     end,
   })
 
-  use({
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap").add_default_mappings()
-    end,
-  })
-  use({
-    "ggandor/leap-spooky.nvim",
-    config = function()
-      require("leap-spooky").setup({})
-    end,
-  })
   -- Colorscheme
   use({
     "folke/tokyonight.nvim",
@@ -483,6 +471,64 @@ local function plugins(use)
   use({ "skanehira/denops-docker.vim", requires = { { "vim-denops/denops.vim" } }, disable = true })
   use({ "jamestthompson3/nvim-remote-containers", disable = true })
   use({ "kkvh/vim-docker-tools" })
+
+  -- Motion
+  use { "unblevable/quick-scope", disable = true }
+  use { "wellle/targets.vim", disable = true }
+  use { 'echasnovski/mini.ai', config = function()
+    require('mini.ai').setup()
+  end, disable = true }
+  use { 'echasnovski/mini.jump', config = function()
+    require("mini.jump").setup({})
+  end, disable = true }
+  use { "rhysd/clever-f.vim", disable = true }
+  use { "easymotion/vim-easymotion", disable = true }
+
+  use { 'echasnovski/mini.jump2d', config = function()
+    require("mini.jump2d").setup({})
+  end, disable = true }
+
+  use({
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+    disable = false
+  })
+  use({
+    "ggandor/leap-spooky.nvim",
+    config = function()
+      require("leap-spooky").setup({})
+    end,
+  })
+  use {
+    'abecodes/tabout.nvim',
+    config = function()
+      require('tabout').setup {
+        tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
+        backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
+        act_as_tab = true, -- shift content if tab out is not possible
+        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        default_tab = '<C-t>', -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+        default_shift_tab = '<C-d>', -- reverse shift default action,
+        enable_backwards = true, -- well ...
+        completion = true, -- if the tabkey is used in a completion pum
+        tabouts = {
+          { open = "'", close = "'" },
+          { open = '"', close = '"' },
+          { open = '`', close = '`' },
+          { open = '(', close = ')' },
+          { open = '[', close = ']' },
+          { open = '{', close = '}' }
+        },
+        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+        exclude = {} --
+
+      }
+    end,
+    wants = { 'nvim-treesitter' },
+  }
+
   -- Bootstrap Neovim
   if packer_bootstrap then
     print("Neovim restart is required after installation!")
