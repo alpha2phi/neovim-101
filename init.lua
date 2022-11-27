@@ -513,6 +513,15 @@ local function plugins(use)
   use { "ThePrimeagen/vim-be-good" }
   use { "tjdevries/train.nvim" }
 
+
+  -- New plugins
+  use({
+    "dnlhc/glance.nvim",
+    config = function()
+      require('glance').setup({})
+    end,
+  })
+
   -- Bootstrap Neovim
   if packer_bootstrap then
     print("Neovim restart is required after installation!")
