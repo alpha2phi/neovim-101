@@ -541,7 +541,7 @@ local function plugins(use)
   })
   use { 'tamton-aquib/zone.nvim', config = function()
     require("zone").setup()
-  end }
+  end, disable = true }
   use { 'eandrju/cellular-automaton.nvim', disable = true }
   use { 'xorid/asciitree.nvim', disable = true }
   use({
@@ -573,6 +573,12 @@ local function plugins(use)
       vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
     end,
     disable = true
+  }
+  use {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
   }
 
   -- Bootstrap Neovim
