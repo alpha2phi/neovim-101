@@ -473,27 +473,39 @@ local function plugins(use)
   use({ "kkvh/vim-docker-tools" })
 
   -- Motion
-  use { "unblevable/quick-scope", disable = true }
-  use { "wellle/targets.vim", disable = true }
-  use { 'echasnovski/mini.ai', config = function()
-    require('mini.ai').setup()
-  end, disable = true }
-  use { 'echasnovski/mini.jump', config = function()
-    require("mini.jump").setup({})
-  end, disable = true }
-  use { "rhysd/clever-f.vim", disable = true }
-  use { "easymotion/vim-easymotion", disable = true }
+  use({ "unblevable/quick-scope", disable = true })
+  use({ "wellle/targets.vim", disable = true })
+  use({
+    "echasnovski/mini.ai",
+    config = function()
+      require("mini.ai").setup()
+    end,
+    disable = true,
+  })
+  use({
+    "echasnovski/mini.jump",
+    config = function()
+      require("mini.jump").setup({})
+    end,
+    disable = true,
+  })
+  use({ "rhysd/clever-f.vim", disable = true })
+  use({ "easymotion/vim-easymotion", disable = true })
 
-  use { 'echasnovski/mini.jump2d', config = function()
-    require("mini.jump2d").setup({})
-  end, disable = true }
+  use({
+    "echasnovski/mini.jump2d",
+    config = function()
+      require("mini.jump2d").setup({})
+    end,
+    disable = true,
+  })
 
   use({
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
     end,
-    disable = false
+    disable = false,
   })
   use({
     "ggandor/leap-spooky.nvim",
@@ -501,26 +513,37 @@ local function plugins(use)
       require("leap-spooky").setup({})
     end,
   })
-  use {
-    'abecodes/tabout.nvim',
+  use({
+    "abecodes/tabout.nvim",
     config = function()
-      require('tabout').setup {}
+      require("tabout").setup({})
     end,
-    wants = { 'nvim-treesitter' },
-  }
+    wants = { "nvim-treesitter" },
+  })
 
   -- Games
-  use { "ThePrimeagen/vim-be-good" }
-  use { "tjdevries/train.nvim" }
-
+  use({ "ThePrimeagen/vim-be-good" })
+  use({ "tjdevries/train.nvim" })
 
   -- New plugins
   use({
     "dnlhc/glance.nvim",
     config = function()
-      require('glance').setup({})
+      require("glance").setup({})
     end,
   })
+  use({
+    "Wansmer/treesj",
+    requires = { "nvim-treesitter" },
+    config = function()
+      require("treesj").setup {}
+    end,
+  })
+  use { 'tamton-aquib/zone.nvim', config = function()
+    require("zone").setup()
+  end }
+  use 'eandrju/cellular-automaton.nvim'
+  use 'xorid/asciitree.nvim'
 
   -- Bootstrap Neovim
   if packer_bootstrap then
