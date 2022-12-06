@@ -542,8 +542,38 @@ local function plugins(use)
   use { 'tamton-aquib/zone.nvim', config = function()
     require("zone").setup()
   end }
-  use 'eandrju/cellular-automaton.nvim'
-  use 'xorid/asciitree.nvim'
+  use { 'eandrju/cellular-automaton.nvim', disable = true }
+  use { 'xorid/asciitree.nvim', disable = true }
+  use({
+    "folke/drop.nvim",
+    event = "VimEnter",
+    config = function()
+      require("drop").setup()
+    end,
+    disable = true
+  })
+  use {
+    "cshuaimin/ssr.nvim",
+    module = "ssr",
+    -- Calling setup is optional.
+    config = function()
+      require("ssr").setup {
+        min_width = 50,
+        min_height = 5,
+        max_width = 120,
+        max_height = 25,
+        keymaps = {
+          close = "q",
+          next_match = "n",
+          prev_match = "N",
+          replace_confirm = "<cr>",
+          replace_all = "<leader><cr>",
+        },
+      }
+      vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
+    end,
+    disable = true
+  }
 
   -- Bootstrap Neovim
   if packer_bootstrap then
