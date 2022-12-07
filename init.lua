@@ -473,27 +473,39 @@ local function plugins(use)
   use({ "kkvh/vim-docker-tools" })
 
   -- Motion
-  use { "unblevable/quick-scope", disable = true }
-  use { "wellle/targets.vim", disable = true }
-  use { 'echasnovski/mini.ai', config = function()
-    require('mini.ai').setup()
-  end, disable = true }
-  use { 'echasnovski/mini.jump', config = function()
-    require("mini.jump").setup({})
-  end, disable = true }
-  use { "rhysd/clever-f.vim", disable = true }
-  use { "easymotion/vim-easymotion", disable = true }
+  use({ "unblevable/quick-scope", disable = true })
+  use({ "wellle/targets.vim", disable = true })
+  use({
+    "echasnovski/mini.ai",
+    config = function()
+      require("mini.ai").setup()
+    end,
+    disable = true,
+  })
+  use({
+    "echasnovski/mini.jump",
+    config = function()
+      require("mini.jump").setup({})
+    end,
+    disable = true,
+  })
+  use({ "rhysd/clever-f.vim", disable = true })
+  use({ "easymotion/vim-easymotion", disable = true })
 
-  use { 'echasnovski/mini.jump2d', config = function()
-    require("mini.jump2d").setup({})
-  end, disable = true }
+  use({
+    "echasnovski/mini.jump2d",
+    config = function()
+      require("mini.jump2d").setup({})
+    end,
+    disable = true,
+  })
 
   use({
     "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
     end,
-    disable = false
+    disable = false,
   })
   use({
     "ggandor/leap-spooky.nvim",
@@ -501,26 +513,73 @@ local function plugins(use)
       require("leap-spooky").setup({})
     end,
   })
-  use {
-    'abecodes/tabout.nvim',
+  use({
+    "abecodes/tabout.nvim",
     config = function()
-      require('tabout').setup {}
+      require("tabout").setup({})
     end,
-    wants = { 'nvim-treesitter' },
-  }
+    wants = { "nvim-treesitter" },
+  })
 
   -- Games
-  use { "ThePrimeagen/vim-be-good" }
-  use { "tjdevries/train.nvim" }
-
+  use({ "ThePrimeagen/vim-be-good" })
+  use({ "tjdevries/train.nvim" })
 
   -- New plugins
   use({
     "dnlhc/glance.nvim",
     config = function()
-      require('glance').setup({})
+      require("glance").setup({})
     end,
   })
+  use({
+    "Wansmer/treesj",
+    requires = { "nvim-treesitter" },
+    config = function()
+      require("treesj").setup {}
+    end,
+  })
+  use { 'tamton-aquib/zone.nvim', config = function()
+    require("zone").setup()
+  end, disable = true }
+  use { 'eandrju/cellular-automaton.nvim', disable = true }
+  use { 'xorid/asciitree.nvim', disable = true }
+  use({
+    "folke/drop.nvim",
+    event = "VimEnter",
+    config = function()
+      require("drop").setup()
+    end,
+    disable = true
+  })
+  use {
+    "cshuaimin/ssr.nvim",
+    module = "ssr",
+    -- Calling setup is optional.
+    config = function()
+      require("ssr").setup {
+        min_width = 50,
+        min_height = 5,
+        max_width = 120,
+        max_height = 25,
+        keymaps = {
+          close = "q",
+          next_match = "n",
+          prev_match = "N",
+          replace_confirm = "<cr>",
+          replace_all = "<leader><cr>",
+        },
+      }
+      vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
+    end,
+    disable = true
+  }
+  use {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
+  }
 
   -- Bootstrap Neovim
   if packer_bootstrap then
