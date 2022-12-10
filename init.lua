@@ -589,7 +589,14 @@ local function plugins(use)
   -- Dashboard
   use { "glepnir/dashboard-nvim", config = function()
     require("config.dashboard")
-  end, disable = false }
+  end, disable = true }
+use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+      require("config.alpha")
+    end
+}
 
   -- Bootstrap Neovim
   if packer_bootstrap then
