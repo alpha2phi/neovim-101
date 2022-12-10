@@ -542,7 +542,7 @@ local function plugins(use)
   use { 'tamton-aquib/zone.nvim', config = function()
     require("zone").setup()
   end, disable = true }
-  use { 'eandrju/cellular-automaton.nvim', disable = true }
+  use { 'eandrju/cellular-automaton.nvim', disable = false }
   use { 'xorid/asciitree.nvim', disable = true }
   use({
     "folke/drop.nvim",
@@ -580,6 +580,16 @@ local function plugins(use)
       require("inc_rename").setup()
     end,
   }
+
+  -- Screen saver
+  use { "uguu-org/vim-matrix-screensaver" }
+  use { "itchyny/calendar.vim" }
+  use { "itchyny/screensaver.vim" }
+
+  -- Dashboard
+  use { "glepnir/dashboard-nvim", config = function()
+    require("config.dashboard")
+  end, disable = false }
 
   -- Bootstrap Neovim
   if packer_bootstrap then
