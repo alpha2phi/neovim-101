@@ -652,6 +652,17 @@ local function plugins(use)
   }
   use { "gennaro-tedesco/nvim-peekup" }
 
+  -- File explorer
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
+
   -- Bootstrap Neovim
   if is_bootstrap then
     print("Neovim restart is required after installation!")
