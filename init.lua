@@ -91,6 +91,7 @@ local function plugins(use)
     end,
   })
   use({ "nvim-telescope/telescope-symbols.nvim" })
+  use { "nvim-telescope/telescope-file-browser.nvim" }
 
   -- View image in buffer
   use({
@@ -637,7 +638,7 @@ local function plugins(use)
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    disable = true
+    disable = false
   })
 
   use({ "dhruvasagar/vim-zoom" })
@@ -650,7 +651,19 @@ local function plugins(use)
     end,
     disable = true
   }
-  use { "gennaro-tedesco/nvim-peekup" }
+  use { "gennaro-tedesco/nvim-peekup", disable = true } -- Change to true
+
+  -- File explorer
+  use { "elihunter173/dirbuf.nvim" }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 
   -- File explorer
   use {
