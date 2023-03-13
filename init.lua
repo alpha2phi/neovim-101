@@ -658,7 +658,7 @@ local function plugins(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
-		disable = false,
+		disable = true,
 	})
 
 	use({ "dhruvasagar/vim-zoom" })
@@ -685,6 +685,15 @@ local function plugins(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+		},
+	})
+
+	use({
+		"cbochs/portal.nvim",
+		-- Optional dependencies
+		requires = {
+			"cbochs/grapple.nvim",
+			"ThePrimeagen/harpoon",
 		},
 	})
 
