@@ -676,6 +676,12 @@ local function plugins(use)
 
 	-- File explorer
 	use({ "elihunter173/dirbuf.nvim" })
+	use({
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup()
+		end,
+	})
 
 	-- File explorer
 	use({
