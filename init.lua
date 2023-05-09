@@ -548,6 +548,12 @@ local function plugins(use)
 	-- Games
 	use({ "ThePrimeagen/vim-be-good" })
 	use({ "tjdevries/train.nvim" })
+	use({
+		"BooleanCube/keylab.nvim",
+		config = function()
+			local keylab = require("keylab").setup({})
+		end,
+	})
 
 	-- New plugins
 	use({
@@ -691,15 +697,6 @@ local function plugins(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
-		},
-	})
-
-	use({
-		"cbochs/portal.nvim",
-		-- Optional dependencies
-		requires = {
-			"cbochs/grapple.nvim",
-			"ThePrimeagen/harpoon",
 		},
 	})
 
